@@ -11,7 +11,7 @@ typedef struct{
     int tail;
     int capacity;
     int count;
-}RingBuffer;
+} RingBuffer;
 // handle buffer lifecycle
 int rb_init(RingBuffer*, int);
 int rb_deinit(RingBuffer*);
@@ -20,6 +20,9 @@ int rb_deinit(RingBuffer*);
 int rb_push(RingBuffer*, int); // places an item in the buffer
 int rb_pop(RingBuffer*, int*); // removes an item from the buffer
 
+
+// print the full buffer
+void rb_print(RingBuffer* rb);
 // clear the buffer
 int rb_clear(RingBuffer*);
 

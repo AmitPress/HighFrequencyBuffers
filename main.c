@@ -16,11 +16,7 @@ int main(int argc, char** argv)
             int pushed_value = rb_push(&rb, x);
             printf("Pushed: %d\n", pushed_value);
         }
-        int popped_value;
-        rb_pop(&rb, &popped_value);
-        printf("Popped: %d\n", popped_value);
-        rb_pop(&rb, &popped_value);
-        printf("Popped: %d\n", popped_value);
+        rb_print(&rb);
     }
     if(rb_deinit(&rb)) 
     {

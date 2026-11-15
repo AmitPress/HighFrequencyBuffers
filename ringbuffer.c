@@ -1,5 +1,6 @@
 #include "ringbuffer.h"
 #include<stdlib.h>
+#include<stdio.h>
 
 // init ring buffer
 int rb_init(RingBuffer* rb, int capacity) 
@@ -29,6 +30,21 @@ int rb_pop(RingBuffer* rb, int* popped_value)
     rb->tail = (rb->tail + 1) % rb->capacity;
     rb->count--;
     return 1;
+}
+
+
+// print the full ring buffer
+
+void rb_print(RingBuffer* rb) 
+{
+    printf("[ ");
+    for(size_t i = 0; i < rb->count; i++)
+    {
+        size_t idx = (rb->tail + i) % rb->capacity;
+        printf("%d", rb->data[idx]);
+        if(i + 1 < rb->count) printf(", ");
+    }
+    printf("]\n");
 }
 
 // deinit ring buffer
